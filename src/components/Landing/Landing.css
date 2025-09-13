@@ -1,93 +1,132 @@
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .landing {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: linear-gradient(
-        135deg,
-        #fff8e1 0%,     
-        #ffe0b2 50%,   
-        #ffcc80 100%   
-      );
-      overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  height: 100vh;
+  padding: 0 50px;
+  overflow: hidden;
+  color: white;
 }
 
-   
-.circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      animation: float 10s infinite linear;
+.landing-left {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideLeft 1s ease-out forwards;
+  opacity: 0; 
 }
 
-.circle:nth-child(1) {
-      width: 120px;
-      height: 120px;
-      top: 20%;
-      left: 15%;
-      animation-duration: 12s;
+.landing-left h1 {
+  font-size: 3rem;
 }
 
-.circle:nth-child(2) {
-      width: 80px;
-      height: 80px;
-      bottom: 25%;
-      right: 20%;
-      animation-duration: 15s;
-}
-
-.circle:nth-child(3) {
-      width: 200px;
-      height: 200px;
-      top: 10%;
-      right: 10%;
-      animation-duration: 18s;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) scale(1); opacity: 0.7; }
-    50% { transform: translateY(-40px) scale(1.1); opacity: 0.4; }
-    100% { transform: translateY(0) scale(1); opacity: 0.7; }
-}
-
-.landing h1 {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 1rem;
-    z-index: 2;
-}
-
-.landing p {
+.landing-left p {
   font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2rem;
-  z-index: 2;
+}
+
+.button-container{
+  display: flex;
+  gap: 20px;
 }
 
 .btn {
-      padding: 12px 24px;
-      border-radius: 25px;
-      background: #ff9800;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      z-index: 2;
-      box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
-      transition: 0.3s;
+  padding: 12px 24px;
+  border-radius: 25px;
+  background: #ff9800;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+  transition: 0.3s;
 }
 
 .btn:hover {
-      background: #e68900;
-      box-shadow: 0 8px 30px rgba(255, 152, 0, 0.5);
+  background: #e68900;
+  box-shadow: 0 8px 30px rgba(255, 152, 0, 0.5);
 }
 
+.landing-right {
+  margin-top: -70px;
+  animation: slideRight 1s ease-out forwards;
+  opacity: 0;
+}
+
+.landing-right img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 10s infinite linear;
+}
+
+.circle:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  left: 15%;
+  animation-duration: 12s;
+}
+
+.circle:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  bottom: 10%;
+  right: 50%;
+  animation-duration: 15s;
+}
+
+.circle:nth-child(3) {
+  width: 180px;
+  height: 180px;
+  top:4%;
+  right: 1%;
+  animation-duration: 18s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-40px) scale(1.1); opacity: 0.4; }
+  100% { transform: translateY(0) scale(1); opacity: 0.7; }
+}
+
+@keyframes slideLeft {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid orange; 
+  width: 0;  
+  animation: typing 2s steps(12) forwards, blink 0.7s infinite step-end;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 12ch; } 
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
